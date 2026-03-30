@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>AI Travel Planning Agent</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌍 AI Travel Planning Agent</h1>
+
+<p class="subtitle">Plan smart trips using Agentic AI</p>
+
+<form method="POST" onsubmit="showLoading()">
+
+<textarea 
+name="goal" 
+placeholder="Example: Plan a 5 day luxury trip to Nashik with wine tasting and sightseeing"
+required
+></textarea>
+
+<br>
+
+<button type="submit">Generate Travel Plan</button>
+
+</form>
+
+<div id="loading" class="loading">
+🤖 AI Agent is planning your trip...
+</div>
+
+{% if error %}
+
+<div class="error">
+{{ error }}
+</div>
+
+{% endif %}
+
+{% if result %}
+
+<div class="result">
+
+<h2>✈️ Travel Plan</h2>
+
+<pre>{{ result }}</pre>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<script>
+
+function showLoading(){
+document.getElementById("loading").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
